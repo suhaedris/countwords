@@ -17,7 +17,7 @@
     <script>
         function countRepeatedWords() {
             const text = document.getElementById('text').value;
-            const words = text.toLowerCase().match(/\w+/g);
+            const words = text.toLowerCase().match(/[\u0600-\u06FF\w]+/g);
             const wordCount = {};
 
             words.forEach(word => {
