@@ -1,0 +1,50 @@
+*,
+*::before,
+*::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: antiquewhite;
+    color: rgb(58, 47, 47);
+    font-family: "Roboto Condensed", sans-serif;
+    font-weight: 500;
+    height: 500px;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+.container{
+    position: relative;
+    top: 120px;
+    background-color: rgba(255, 255, 255, 0.3);
+    width: 500px;
+    height: auto;
+    padding: 20px 20px;
+    border-radius: 15px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    align-items: center;
+    justify-content: center;
+}
+.in{
+    color: rgb(58, 47, 47);
+    margin: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 10px 20px;
+    width: 350px;
+    position: relative;
+}
+
+.btn{
+    position: relative;
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.1); 
+    border-radius: 5px;
+    padding: 10px;
+    background-color: rgb(58, 47, 47);
+}
+

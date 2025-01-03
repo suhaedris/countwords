@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Repeated Words Counter</title>
+</head>
+<body>
+    <div id="container">
+        <h1>Repeated Words Counter</h1>
+    <textarea id="text" rows="6" class="in" cols="50" placeholder="Enter your text here..."></textarea><br>
+    <button class="btn" onclick="countRepeatedWords()">Count</button>
+    <br> <br>
+    <h2>Results:</h2> <div id="results"></div>
+</div>
+    <script>
+        function countRepeatedWords() {
+            const text = document.getElementById('text').value;
+            const words = text.toLowerCase().match(/\w+/g);
+            const wordCount = {};
+
+            words.forEach(word => {
+                wordCount[word] = (wordCount[word] || 0) + 1;
+            });
+
+            const sortedWords = Object.entries(wordCount)
+                .filter(([word, count]) => count > 1)
+                .sort((a, b) => b[1] - a[1]);
+
+            const resultsDiv = document.getElementById('results');
+            resultsDiv.innerHTML = '';
+
+            if (sortedWords.length === 0) {
+                resultsDiv.innerHTML = 'No repeated words found.';
+            } else {
+                sortedWords.forEach(([word, count]) => {
+                    resultsDiv.innerHTML += `<p>${word}: ${count}</p>`;
+                });
+            }
+        }
+        //in console
+        // function countRepeatedWords() {
+        //     const text = document.getElementById('textInput').value;
+        //     const words = text.toLowerCase().match(/\b\w+\b/g);
+            
+        //     const wordCount = {};
+
+        //     words.forEach(word => {
+        //         wordCount[word] = (wordCount[word] || 0) + 1;
+        //     });
+
+        //     const sortedWords = Object.entries(wordCount)
+        //         .filter(([word, count]) => count > 1)
+        //         .sort((a, b) => b[1] - a[1]);
+
+        //     console.clear();
+        //     if (sortedWords.length > 0) {
+        //         console.log("Repeated Words:");
+        //         sortedWords.forEach(([word, count]) => {
+        //             console.log(`${word}: ${count}`);
+        //         });
+        //     } else {
+        //         console.log("No repeated words found.");
+        //     }
+        // }
+    </script>
+</body>
+</html>
